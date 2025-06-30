@@ -1,0 +1,54 @@
+config: config/shape/swan_flamingo_latent_blend.yaml
+pretrained_model_path: ./ckpt/swan_150
+dataset_config:
+  path: data/attribute/swan_swarov
+  prompt: a black swan with a red beak swimming in a river near a wall and bushes,
+  n_sample_frame: 8
+  sampling_rate: 1
+  stride: 80
+  offset:
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+logdir: null
+editing_config:
+  use_invertion_latents: true
+  use_inversion_attention: true
+  annotate: false
+  editing_prompts:
+  - a white ibis with a black beak swimming in a river near a wall and bushes
+  p2p_config:
+    0:
+      cross_replace_steps:
+        default_: 0.5
+      self_replace_steps: 0.8
+      use_inversion_attention: true
+      is_replace_controller: true
+      blend_words:
+      - - black
+        - swan
+        - red
+      - - white
+        - ibis
+        - black
+      blend_self_attention: true
+      blend_latents: true
+      blend_th:
+      - 0.3
+      - 0.3
+  clip_length: ${..dataset_config.n_sample_frame}
+  sample_seeds:
+  - 0
+  num_inference_steps: 50
+  prompt2prompt_edit: true
+test_pipeline_config:
+  target: video_diffusion.pipelines.p2p_ddim_spatial_temporal.P2pDDIMSpatioTemporalPipeline
+  num_inference_steps: ${..validation_sample_logger.num_inference_steps}
+gradient_accumulation_steps: 1
+seed: 0
+mixed_precision: fp16
+batch_size: 1
+model_config:
+  lora: 160
+verbose: true
