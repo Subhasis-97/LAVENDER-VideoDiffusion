@@ -27,5 +27,15 @@ The method operates in latent space and introduces guided attention blending to 
 ```bash
 git clone https://github.com/Subhasis-97/LAVENDER-VideoDiffusion.git
 cd LAVENDER-VideoDiffusion
+## Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@article{lavender2026,
+  title={LAVENDER: Latent Adaptive Video Diffusion for Text-Guided Video Editing with Attention Blending},
+  author={Dutta, Subhasis},
+  year={2026}
+}
 
 pip install -r requirements.txt
