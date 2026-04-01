@@ -1,41 +1,54 @@
-# LAVENDER-VideoDiffusion
+# 🌿 LAVENDER-VideoDiffusion
 
-Official implementation of **LAVENDER: Latent Adaptive Video Diffusion for Text-Guided Video Editing with Attention Blending**.
+🚀 Official implementation of  
+**LAVENDER: Latent Adaptive Video Diffusion for Text-Guided Video Editing with Attention Blending**
 
-## Overview
+---
 
-LAVENDER is a zero-shot framework for text-guided video editing that generates semantically accurate and temporally consistent videos using diffusion models.
+## 📌 Overview
 
-The method operates in latent space and introduces guided attention blending to improve editing quality, especially for challenging transformations.
+LAVENDER is a **zero-shot video editing framework** that enables high-quality, text-guided video manipulation using diffusion models—without requiring per-video fine-tuning.
 
-## Key Features
+The framework operates in the **latent space** and introduces a novel **Guided Attention Blending** mechanism to achieve:
 
-- Zero-shot video editing (no per-video training required)
-- Strong semantic alignment with text prompts
-- Temporal consistency across frames
-- Robust to large appearance and object changes
+- Strong semantic alignment with text prompts  
+- High temporal consistency across frames  
+- Robust editing under large appearance and structural changes  
 
-## Method
+---
 
-1. **DDIM Inversion** – Convert input video into latent space  
-2. **Reference Generation** – Create target-aware visual guidance from prompt  
-3. **Guided Attention Blending** – Inject target semantics during denoising  
-4. **Cross-Frame Attention** – Maintain temporal coherence  
+## ✨ Highlights
 
-## Installation
+- 🔹 Zero-shot video editing (no retraining required)  
+- 🔹 Works with pretrained diffusion models  
+- 🔹 Maintains motion and structure consistency  
+- 🔹 Handles complex edits (object replacement, appearance change)  
+- 🔹 Efficient and modular pipeline  
+
+---
+
+## 🧠 Method Overview
+
+LAVENDER consists of four key steps:
+
+1. **DDIM Inversion**  
+   Convert input video frames into latent representations.
+
+2. **Reference Generation**  
+   Generate a target-aware visual reference from the text prompt.
+
+3. **Guided Attention Blending**  
+   Blend source and target attention maps during denoising for precise editing.
+
+4. **Cross-Frame Attention**  
+   Propagate temporal information across frames to ensure smooth and consistent results.
+
+---
+
+## ⚙️ Installation
 
 ```bash
 git clone https://github.com/Subhasis-97/LAVENDER-VideoDiffusion.git
 cd LAVENDER-VideoDiffusion
-## Citation
-
-If you find this work useful, please cite:
-
-```bibtex
-@article{lavender2026,
-  title={LAVENDER: Latent Adaptive Video Diffusion for Text-Guided Video Editing with Attention Blending},
-  author={Dutta, Subhasis},
-  year={2026}
-}
 
 pip install -r requirements.txt
