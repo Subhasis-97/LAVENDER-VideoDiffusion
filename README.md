@@ -1,37 +1,31 @@
-# LAVENDER: Latent Adaptive Video Diffusion for Text-Guided Video Editing
+# LAVENDER-VideoDiffusion
 
-LAVENDER is a zero-shot framework for text-guided video editing that produces semantically accurate and temporally consistent results using diffusion models.
+Official implementation of **LAVENDER: Latent Adaptive Video Diffusion for Text-Guided Video Editing with Attention Blending**.
 
 ## Overview
 
-This project introduces a novel method that performs video editing in latent space using:
+LAVENDER is a zero-shot framework for text-guided video editing that generates semantically accurate and temporally consistent videos using diffusion models.
 
-- DDIM inversion
-- Guided attention blending
-- Cross-frame attention
-
-The goal is to enable robust editing without per-video fine-tuning.
+The method operates in latent space and introduces guided attention blending to improve editing quality, especially for challenging transformations.
 
 ## Key Features
 
-- Zero-shot video editing
+- Zero-shot video editing (no per-video training required)
 - Strong semantic alignment with text prompts
-- Improved temporal consistency
-- Handles large appearance and object changes
+- Temporal consistency across frames
+- Robust to large appearance and object changes
 
 ## Method
 
-1. Invert video frames into latent space (DDIM inversion)
-2. Generate target-aware reference from text prompt
-3. Apply guided attention blending during denoising
-4. Use cross-frame attention for temporal consistency
+1. **DDIM Inversion** – Convert input video into latent space  
+2. **Reference Generation** – Create target-aware visual guidance from prompt  
+3. **Guided Attention Blending** – Inject target semantics during denoising  
+4. **Cross-Frame Attention** – Maintain temporal coherence  
 
-## Usage
+## Installation
 
 ```bash
-git clone https://github.com/Subhasis-97/ABCD.git
-cd ABCD
+git clone https://github.com/Subhasis-97/LAVENDER-VideoDiffusion.git
+cd LAVENDER-VideoDiffusion
+
 pip install -r requirements.txt
-
-python main.py --input_video input.mp4 --prompt "your prompt"
-
